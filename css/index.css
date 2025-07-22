@@ -54,9 +54,15 @@
 }
 
 body{
-    background-image: url(/css/fondo.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-color: #fff;
+}
+.vacio{
+    background-color: black;
+    padding: 100px;
+    border-radius: 10000px;
+}
+
+h1{
+    color: white;
 }
 
