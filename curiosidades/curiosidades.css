@@ -173,15 +173,6 @@ h4 {
   max-width: 1000px;
 }
 
-.universidad {
- t background-color: #f5f5f5;
-  padding: 20px;
-  border-radius: 15px;
-  width: 300px;
-  text-align: center;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
-}
 
 .universidad:hover {
   transform: scale(1.05);
