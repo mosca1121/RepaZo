@@ -21,7 +21,7 @@ a:hover {
 }
 
 .titulo {
-  color: #228822;
+  color: #228B22;
   font-family: fantasy;
 }
 
@@ -45,7 +45,7 @@ a:hover {
 }
 
 .menu a:hover {
-  background-color: #228822;
+  background-color: #228B22;
   color: #FFFFFF;
 }
 
@@ -72,7 +72,7 @@ h1 {
   text-align: center;
   font-size: 2.5em;
   margin-top: 30px;
-  color: #228822;
+  color: #228B22;
 }
 
 h2, h3 {
