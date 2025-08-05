@@ -7,7 +7,7 @@ a:hover {
   background-image: url(/fondo.png);
   padding: 30px 20px;
   text-align: center;
-  color: rgb(10, 9, 9);
+  color: #000000
 }
 
 .encabezado h1 {
