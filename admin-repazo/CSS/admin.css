@@ -1,0 +1,383 @@
+/* =====================================================
+   PERFIL DE ADMINISTRADOR  ·  admin.html
+   Todas las clases usan el prefijo "adm-" para no
+   mezclarse con CSS/codigo.css. Cargar DESPUÉS de codigo.css.
+===================================================== */
+
+
+/* ===========================
+   CONTENEDOR PRINCIPAL
+=========================== */
+
+.adm-principal {
+    width: 100%;
+    padding: 32px 64px 40px 64px;
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
+    gap: 48px;
+    align-items: start;
+}
+
+
+/* ===========================
+   TARJETA IZQUIERDA (filas de materias)
+=========================== */
+
+.adm-panel-izq {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    background: rgba(255, 255, 255, 0.93);
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+}
+
+/* Cada fila define sus propios colores con variables */
+.adm-fila {
+    --adm-acento: #2563eb;
+    --adm-acento-oscuro: #1d4ed8;
+    --adm-acento-suave: #eff6ff;
+}
+
+.adm-fila--once {
+    --adm-acento: #2563eb;
+    --adm-acento-oscuro: #1d4ed8;
+    --adm-acento-suave: #eff6ff;
+}
+
+.adm-fila-titulo {
+    margin: 0 0 16px 0;
+    padding-bottom: 8px;
+    color: #1e293b;
+    font-size: 19px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.adm-fila-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
+    gap: 14px;
+}
+
+
+/* ===========================
+   RECUADRO DE MATERIA
+=========================== */
+
+.adm-materia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 10px 14px 10px;
+    background: var(--adm-acento-suave);
+    border: 2px solid var(--adm-acento);
+    border-radius: 12px;
+    text-align: center;
+    transition: transform .2s, box-shadow .2s;
+}
+
+.adm-materia:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.adm-materia-icono {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--adm-acento);
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.adm-materia-nombre {
+    margin: 0;
+    color: #1e293b;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.adm-materia-boton {
+    margin-top: auto;
+    padding: 6px 12px;
+    background: var(--adm-acento);
+    color: #ffffff;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color .2s;
+}
+
+.adm-materia-boton:hover {
+    background: var(--adm-acento-oscuro);
+}
+
+
+/* ===========================
+   TARJETA DERECHA (datos del administrador)
+=========================== */
+
+.adm-panel-der {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    background: rgba(255, 255, 255, 0.93);
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+}
+
+.adm-panel-der-titulo {
+    margin: 0;
+    padding-bottom: 8px;
+    color: #1e293b;
+    font-size: 21px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.adm-foto {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.adm-foto-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #2563eb;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    background-color: #e2e8f0;
+}
+
+.adm-foto-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.adm-foto-label {
+    font-size: 14px;
+    color: #475569;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.adm-foto-input {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: #64748b;
+    max-width: 100%;
+}
+
+.adm-foto-boton {
+    align-self: flex-start;
+    padding: 6px 13px;
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color .2s;
+}
+
+.adm-foto-boton:hover {
+    background-color: #1d4ed8;
+}
+
+.adm-datos {
+    margin: 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px 19px;
+    align-items: center;
+}
+
+.adm-datos-termino {
+    font-weight: bold;
+    color: #64748b;
+    font-size: 15px;
+}
+
+.adm-datos-valor {
+    margin: 0;
+    font-size: 16px;
+    color: #334155;
+    word-break: break-word;
+}
+
+.adm-datos-valor--nombre {
+    color: #1d4ed8;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.adm-etiqueta-rol {
+    display: inline-block;
+    padding: 3px 12px;
+    background: #063669;
+    color: #ffffff;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* ===========================
+   TABLA: RESULTADOS QUIZZES
+=========================== */
+
+.adm-resultados {
+    margin: 0 64px 48px 64px;
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.93);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+}
+
+.adm-resultados-titulo {
+    margin: 0 0 19px 0;
+    padding-bottom: 8px;
+    color: #1e293b;
+    font-size: 21px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+/* Permite desplazar la tabla en pantallas pequeñas */
+.adm-tabla-contenedor {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.adm-tabla {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+.adm-tabla-encabezado {
+    padding: 12px 14px;
+    background: #063669;
+    color: #ffffff;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.adm-tabla-encabezado:first-child {
+    border-top-left-radius: 8px;
+}
+
+.adm-tabla-encabezado:last-child {
+    border-top-right-radius: 8px;
+}
+
+.adm-tabla-celda {
+    padding: 12px 14px;
+    color: #334155;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.adm-tabla-fila:nth-child(even) {
+    background: #f1f5f9;
+}
+
+.adm-tabla-fila:hover {
+    background: #e0ecff;
+}
+
+.adm-tabla-celda--centro {
+    text-align: center;
+}
+
+.adm-tabla-vacio {
+    padding: 24px 14px;
+    text-align: center;
+    color: #64748b;
+    font-style: italic;
+}
+
+/* Insignia del porcentaje: usar una variante según el valor */
+.adm-porcentaje {
+    display: inline-block;
+    min-width: 64px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.adm-porcentaje--alto {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.adm-porcentaje--medio {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.adm-porcentaje--bajo {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 950px) {
+
+    .adm-principal {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 24px 20px 28px 20px;
+        margin-top: 150px; /* la barra de navegación se apila en pantallas pequeñas */
+    }
+
+    .adm-resultados {
+        margin: 0 20px 36px 20px;
+        padding: 24px 18px;
+    }
+}
+
+@media (max-width: 520px) {
+
+    .adm-panel-izq,
+    .adm-panel-der {
+        padding: 22px 18px;
+    }
+
+    .adm-fila-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .adm-datos {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .adm-datos-valor {
+        margin-bottom: 12px;
+    }
+}

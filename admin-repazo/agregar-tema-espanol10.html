@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Repazo | Agregar tema de Español 10°</title>
+    <link href="CSS/codigo.css" rel="stylesheet">
+    <link href="CSS/admin-tema.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img alt="logo de Repazo" decoding="async" loading="lazy" src="IMAGENES/LOGOREPAZO.jpg">
+            <h2>Repazo</h2>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="panel.php">Módulos</a></li>
+                <li><a href="quizes.php">Quizzes</a></li>
+                <li><a href="curiosidades.php">Datos Curiosos</a></li>
+                <li><a href="admin.html" class="active">Perfil</a></li>
+                <li><a href="php/cerrar_sesion.php" style="color: #ffcccc;">Cerrar sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="adt-principal">
+        <section class="adt-tarjeta">
+
+            <a class="adt-volver" href="admin.html"><i class="fa-solid fa-arrow-left"></i> Volver al perfil de administrador</a>
+
+            <header class="adt-encabezado">
+                <h1 class="adt-titulo">Agregar tema de Español</h1>
+                <span class="adt-etiqueta-grado">Grado décimo (10°)</span>
+                <p class="adt-subtitulo">Completa el formulario para publicar un nuevo tema en esta materia.</p>
+            </header>
+
+            <form action="PHP/guardar_tema.php" class="adt-formulario" enctype="multipart/form-data" method="post">
+                <input name="grado" type="hidden" value="10">
+                <input name="materia" type="hidden" value="espanol">
+
+                <div class="adt-campo">
+                    <label class="adt-etiqueta" for="titulo">Título del tema</label>
+                    <input class="adt-entrada" id="titulo" maxlength="150" name="titulo" placeholder="Ej: Funciones trigonométricas" required type="text">
+                </div>
+
+                <div class="adt-campo">
+                    <label class="adt-etiqueta" for="explicacion">Explicación</label>
+                    <textarea class="adt-area" id="explicacion" name="explicacion" placeholder="Explica el tema de forma clara y sencilla" required></textarea>
+                </div>
+
+                <div class="adt-campo">
+                    <label class="adt-etiqueta" for="audio">Audio del tema<span class="adt-opcional">(opcional)</span></label>
+                    <input accept="audio/*" class="adt-archivo" id="audio" name="audio" type="file">
+                    <p class="adt-ayuda">Formatos de audio como MP3, WAV u OGG.</p>
+                </div>
+
+                <div class="adt-campo">
+                    <label class="adt-etiqueta" for="ejemplo">Ejemplo escrito</label>
+                    <textarea class="adt-area" id="ejemplo" name="ejemplo" placeholder="Escribe un ejemplo resuelto o ilustrativo" required></textarea>
+                </div>
+
+                <div class="adt-campo">
+                    <label class="adt-etiqueta" for="video">Video de apoyo<span class="adt-opcional">(opcional)</span></label>
+                    <input accept="video/*" class="adt-archivo" id="video" name="video" type="file">
+                    <p class="adt-ayuda">Sube el archivo de video, o usa el campo de abajo si está en YouTube u otra plataforma.</p>
+                </div>
+
+                <div class="adt-campo">
+                    <label class="adt-etiqueta" for="link_video">Link del video<span class="adt-opcional">(si aplica)</span></label>
+                    <input class="adt-entrada" id="link_video" name="link_video" placeholder="https://www.youtube.com/watch?v=..." type="url">
+                </div>
+
+                <div class="adt-acciones">
+                    <button class="adt-boton-guardar" type="submit">Guardar tema</button>
+                    <a class="adt-boton-cancelar" href="admin.html">Cancelar</a>
+                </div>
+            </form>
+
+        </section>
+    </main>
+
+    <footer>
+        <section class="footer1">
+            <h2>Repazo</h2>
+            <p>Aprender nunca fue tan divertido.</p>
+        </section>
+        <section class="footer3">
+            <h3>Síguenos</h3>
+            <div class="redes-sociales">
+                <a href="https://www.facebook.com/profile.php?id=61594301955666" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/_repazo?stkn=MWRlamV2MnNlNm1vcw==" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@repazo80?_r=1&_t=ZS-99uzZN8ve1I" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+        </section>
+    </footer>
+</body>
+</html>

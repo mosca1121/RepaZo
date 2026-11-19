@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Repazo | Perfil de administrador</title>
+    <link href="CSS/codigo.css" rel="stylesheet">
+    <link href="CSS/admin.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img alt="logo de Repazo" decoding="async" loading="lazy" src="IMAGENES/LOGOREPAZO.jpg">
+            <h2>Repazo</h2>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="panel.php">Módulos</a></li>
+                <li><a href="quizes.php">Quizzes</a></li>
+                <li><a href="curiosidades.php">Datos Curiosos</a></li>
+                <li><a href="admin.html" class="active">Perfil</a></li>
+                <li><a href="php/cerrar_sesion.php" style="color: #ffcccc;">Cerrar sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="adm-principal">
+
+        <!-- ================= IZQUIERDA: agregar temas ================= -->
+        <section class="adm-panel-izq">
+
+            <!-- Fila 1: grado décimo -->
+            <section class="adm-fila adm-fila--decimo">
+                <h2 class="adm-fila-titulo">Agrega temas para grado décimo</h2>
+                <div class="adm-fila-grid">
+                    <article class="adm-materia">
+                        <span class="adm-materia-icono"><i class="fa-solid fa-square-root-variable"></i></span>
+                        <h3 class="adm-materia-nombre">Matemáticas</h3>
+                        <a class="adm-materia-boton" href="agregar-tema-matematicas10.html">Agregar tema</a>
+                    </article>
+                    <article class="adm-materia">
+                        <span class="adm-materia-icono"><i class="fa-solid fa-book"></i></span>
+                        <h3 class="adm-materia-nombre">Español</h3>
+                        <a class="adm-materia-boton" href="agregar-tema-espanol10.html">Agregar tema</a>
+                    </article>
+                    <article class="adm-materia">
+                        <span class="adm-materia-icono"><i class="fa-solid fa-calculator"></i></span>
+                        <h3 class="adm-materia-nombre">Física</h3>
+                        <a class="adm-materia-boton" href="agregar-tema-fisica10.html">Agregar tema</a>
+                    </article>
+                    <article class="adm-materia">
+                        <span class="adm-materia-icono"><i class="fa-solid fa-atom"></i></span>
+                        <h3 class="adm-materia-nombre">Química</h3>
+                        <a class="adm-materia-boton" href="agregar-tema-quimica10.html">Agregar tema</a>
+                    </article>
+                    <article class="adm-materia">
+                        <span class="adm-materia-icono"><i class="fa-solid fa-language"></i></span>
+                        <h3 class="adm-materia-nombre">Inglés</h3>
+                        <a class="adm-materia-boton" href="agregar-tema-ingles10.html">Agregar tema</a>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Fila 2: grado undécimo -->
+            <section class="adm-fila adm-fila--once">
+                <h2 class="adm-fila-titulo">Agrega temas para grado undécimo</h2>
+                <div class="adm-fila-grid">
+                    <article class="adm-materia">
+                        <span class="adm-materia-icono"><i class="fa-solid fa-square-root-variable"></i></span>
+                        <h3 class="adm-materia-nombre">Matemáticas</h3>
+                        <a class="adm-materia-boton" href="agregar-tema-matematicas11.html">Agregar tema</a>
+                    </article>
+                    <article class="adm-materia">
+                        <span class="adm-materia-icono"><i class="fa-solid fa-book"></i></span>
+                        <h3 class="adm-materia-nombre">Español</h3>
+                        <a class="adm-materia-boton" href="agregar-tema-espanol11.html">Agregar tema</a>
+                    </article>
+                    <article class="adm-materia">
+                        <span class="adm-materia-icono"><i class="fa-solid fa-calculator"></i></span>
+                        <h3 class="adm-materia-nombre">Física</h3>
+                        <a class="adm-materia-boton" href="agregar-tema-fisica11.html">Agregar tema</a>
+                    </article>
+                    <article class="adm-materia">
+                        <span class="adm-materia-icono"><i class="fa-solid fa-atom"></i></span>
+                        <h3 class="adm-materia-nombre">Química</h3>
+                        <a class="adm-materia-boton" href="agregar-tema-quimica11.html">Agregar tema</a>
+                    </article>
+                    <article class="adm-materia">
+                        <span class="adm-materia-icono"><i class="fa-solid fa-language"></i></span>
+                        <h3 class="adm-materia-nombre">Inglés</h3>
+                        <a class="adm-materia-boton" href="agregar-tema-ingles11.html">Agregar tema</a>
+                    </article>
+                </div>
+            </section>
+
+        </section>
+
+        <!-- ================= DERECHA: datos del administrador ================= -->
+        <section class="adm-panel-der">
+            <h2 class="adm-panel-der-titulo">Perfil del administrador</h2>
+
+            <figure class="adm-foto">
+                <img alt="Foto de perfil" class="adm-foto-img" decoding="async" height="150" loading="lazy" src="IMAGENES/LOGOREPAZO.jpg" width="150">
+                <figcaption>
+                    <form action="admin.html" class="adm-foto-form" enctype="multipart/form-data" method="post">
+                        <label class="adm-foto-label">
+                            Subir foto de perfil
+                            <input accept="image/png, image/jpeg, image/webp" class="adm-foto-input" name="foto" required type="file">
+                        </label>
+                        <button class="adm-foto-boton" type="submit">Guardar foto</button>
+                    </form>
+                </figcaption>
+            </figure>
+
+            <dl class="adm-datos">
+                <dt class="adm-datos-termino">Nombre y Apellido</dt>
+                <dd class="adm-datos-valor adm-datos-valor--nombre">Nombre Apellido</dd>
+
+                <dt class="adm-datos-termino">Correo</dt>
+                <dd class="adm-datos-valor">admin@repazo.com</dd>
+
+                <dt class="adm-datos-termino">Rol</dt>
+                <dd class="adm-datos-valor"><span class="adm-etiqueta-rol">Administrador</span></dd>
+            </dl>
+        </section>
+
+    </main>
+
+    <!-- ================= TABLA: resultados de quizzes ================= -->
+    <section class="adm-resultados">
+        <h2 class="adm-resultados-titulo">Resultados quizzes</h2>
+
+        <div class="adm-tabla-contenedor">
+            <table class="adm-tabla">
+                <thead>
+                    <tr>
+                        <th class="adm-tabla-encabezado" scope="col">Número de solución</th>
+                        <th class="adm-tabla-encabezado" scope="col">Nombre del estudiante</th>
+                        <th class="adm-tabla-encabezado" scope="col">Materia</th>
+                        <th class="adm-tabla-encabezado" scope="col">Respuestas correctas</th>
+                        <th class="adm-tabla-encabezado" scope="col">Respuestas incorrectas</th>
+                        <th class="adm-tabla-encabezado" scope="col">Porcentaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--
+                        PHP: al convertir esta página a .php, generar aquí una fila <tr class="adm-tabla-fila">
+                        por cada intento de quiz (tabla intentos_quizzes unida con usuarios, quizzes y materias).
+                        Celdas en este orden: id del intento, nombre y apellido, materia,
+                        respuestas_correctas, respuestas_incorrectas y porcentaje.
+                        La celda del porcentaje lleva <span class="adm-porcentaje adm-porcentaje--X">
+                        donde X es "alto" (70% o más), "medio" (40% a 69%) o "bajo" (menos de 40%).
+                    -->
+
+                    <!-- FILA DE EJEMPLO (borrar al conectar con PHP) -->
+                    <tr class="adm-tabla-fila">
+                        <td class="adm-tabla-celda">1</td>
+                        <td class="adm-tabla-celda">Nombre Apellido</td>
+                        <td class="adm-tabla-celda">Matemáticas</td>
+                        <td class="adm-tabla-celda adm-tabla-celda--centro">8</td>
+                        <td class="adm-tabla-celda adm-tabla-celda--centro">2</td>
+                        <td class="adm-tabla-celda"><span class="adm-porcentaje adm-porcentaje--alto">80%</span></td>
+                    </tr>
+
+                    <!-- Mensaje cuando no hay resultados (mostrar solo si la consulta viene vacía)
+                    <tr>
+                        <td class="adm-tabla-vacio" colspan="6">Aún no hay resultados de quizzes.</td>
+                    </tr>
+                    -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer>
+        <section class="footer1">
+            <h2>Repazo</h2>
+            <p>Aprender nunca fue tan divertido.</p>
+        </section>
+        <section class="footer3">
+            <h3>Síguenos</h3>
+            <div class="redes-sociales">
+                <a href="https://www.facebook.com/profile.php?id=61594301955666" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/_repazo?stkn=MWRlamV2MnNlNm1vcw==" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@repazo80?_r=1&_t=ZS-99uzZN8ve1I" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+        </section>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,250 @@
+/* =====================================================
+   FORMULARIOS PARA AGREGAR TEMAS  ·  agregar-tema-*.html
+   Todas las clases usan el prefijo "adt-" para no
+   mezclarse con CSS/codigo.css ni con CSS/admin.css.
+   Cargar DESPUÉS de codigo.css.
+===================================================== */
+
+
+/* ===========================
+   CONTENEDOR PRINCIPAL
+=========================== */
+
+.adt-principal {
+    width: 100%;
+    padding: 32px 64px 48px 64px;
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.adt-tarjeta {
+    --adt-acento: #2563eb;
+    --adt-acento-oscuro: #1d4ed8;
+    --adt-acento-suave: #eff6ff;
+
+    width: 100%;
+    max-width: 820px;
+    padding: 36px 40px 40px 40px;
+    background: rgba(255, 255, 255, 0.93);
+    border-radius: 12px;
+    border-top: 6px solid var(--adt-acento);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+}
+
+/* Grado undécimo usa el morado del resto del sitio */
+.adt-tarjeta--once {
+    --adt-acento: #2563eb;
+    --adt-acento-oscuro: #1d4ed8;
+    --adt-acento-suave: #eff6ff;
+}
+
+
+/* ===========================
+   ENCABEZADO
+=========================== */
+
+.adt-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    color: var(--adt-acento);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color .2s;
+}
+
+.adt-volver:hover {
+    color: var(--adt-acento-oscuro);
+    text-decoration: underline;
+}
+
+.adt-encabezado {
+    margin-bottom: 26px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.adt-titulo {
+    margin: 0 0 6px 0;
+    color: #1e293b;
+    font-size: 26px;
+}
+
+.adt-etiqueta-grado {
+    display: inline-block;
+    padding: 3px 14px;
+    background: var(--adt-acento);
+    color: #ffffff;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.adt-subtitulo {
+    margin: 10px 0 0 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+
+/* ===========================
+   FORMULARIO
+=========================== */
+
+.adt-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.adt-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.adt-etiqueta {
+    color: #334155;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.adt-opcional {
+    margin-left: 6px;
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.adt-ayuda {
+    margin: 0;
+    color: #64748b;
+    font-size: 12.5px;
+}
+
+.adt-entrada,
+.adt-area {
+    width: 100%;
+    padding: 11px 14px;
+    background: #ffffff;
+    color: #1e293b;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.adt-area {
+    min-height: 140px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.adt-entrada:focus,
+.adt-area:focus {
+    outline: none;
+    border-color: var(--adt-acento);
+    box-shadow: 0 0 0 3px var(--adt-acento-suave);
+}
+
+.adt-archivo {
+    width: 100%;
+    padding: 12px 14px;
+    background: var(--adt-acento-suave);
+    color: #475569;
+    border: 2px dashed var(--adt-acento);
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.adt-archivo::file-selector-button {
+    margin-right: 14px;
+    padding: 6px 14px;
+    background: var(--adt-acento);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color .2s;
+}
+
+.adt-archivo::file-selector-button:hover {
+    background: var(--adt-acento-oscuro);
+}
+
+
+/* ===========================
+   BOTONES
+=========================== */
+
+.adt-acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 8px;
+}
+
+.adt-boton-guardar {
+    padding: 11px 26px;
+    background: var(--adt-acento);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color .2s;
+}
+
+.adt-boton-guardar:hover {
+    background: var(--adt-acento-oscuro);
+}
+
+.adt-boton-cancelar {
+    padding: 9px 24px;
+    background: #ffffff;
+    color: var(--adt-acento);
+    border: 2px solid var(--adt-acento);
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color .2s, color .2s;
+}
+
+.adt-boton-cancelar:hover {
+    background: var(--adt-acento);
+    color: #ffffff;
+}
+
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 950px) {
+
+    .adt-principal {
+        padding: 24px 20px 36px 20px;
+        margin-top: 150px; /* la barra de navegación se apila en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 520px) {
+
+    .adt-tarjeta {
+        padding: 26px 20px 30px 20px;
+    }
+
+    .adt-titulo {
+        font-size: 22px;
+    }
+}
