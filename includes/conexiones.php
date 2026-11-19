@@ -33,7 +33,8 @@ function requerirSesion(string $rutaLogin = "login.php"): void {
 }
 
 function requerirAdmin(string $rutaInicio = "../paginas/login.php"): void {
-    if (!isset($_SESSION["id_usuario"]) || ($_SESSION["rol"] ?? "") !== "admin") {
+    $rol = $_SESSION["rol"] ?? "";
+    if (!isset($_SESSION["id_usuario"]) || ($rol !== "admin" && $rol !== "administrador")) {
         header("Location: " . $rutaInicio);
         exit;
     }

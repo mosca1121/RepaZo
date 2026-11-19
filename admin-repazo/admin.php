@@ -36,6 +36,40 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES["foto"])) {
     }
 }
 
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["crear_admin"])) {
+    $nuevoNombre   = trim((string)($_POST["nuevo_nombre"] ?? ""));
+    $nuevoApellido = trim((string)($_POST["nuevo_apellido"] ?? ""));
+    $nuevoCorreo   = strtolower(trim((string)($_POST["nuevo_correo"] ?? "")));
+    $nuevoPass     = (string)($_POST["nuevo_password"] ?? "");
+
+    if ($nuevoNombre === "" || $nuevoApellido === "" || !filter_var($nuevoCorreo, FILTER_VALIDATE_EMAIL) || strlen($nuevoPass) < 6) {
+        $mensaje = "Completa todos los campos y usa una contraseña de al menos 6 caracteres.";
+        $tipoMensaje = "error";
+    } else {
+        $chk = $conexion->prepare("SELECT id_usuario FROM usuarios WHERE correo = ? LIMIT 1");
+        $chk->bind_param("s", $nuevoCorreo);
+        $chk->execute();
+        $chk->store_result();
+
+        if ($chk->num_rows > 0) {
+            $chk->close();
+            $mensaje = "Ese correo ya está registrado.";
+            $tipoMensaje = "error";
+        } else {
+            $chk->close();
+            $hashNuevo = password_hash($nuevoPass, PASSWORD_DEFAULT);
+            $insAdmin = $conexion->prepare(
+                "INSERT INTO usuarios (nombre, apellido, correo, contrasena_hash, grado, rol) VALUES (?, ?, ?, ?, 0, 'administrador')"
+            );
+            $insAdmin->bind_param("ssss", $nuevoNombre, $nuevoApellido, $nuevoCorreo, $hashNuevo);
+            $insAdmin->execute();
+            $insAdmin->close();
+            header("Location: admin.php?ok=admin_creado");
+            exit;
+        }
+    }
+}
+
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminar_tema"])) {
     $idTemaEliminar = (int)$_POST["eliminar_tema"];
     $del = $conexion->prepare("DELETE FROM temas_modulos WHERE id_tema = ?");
@@ -48,6 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminar_tema"])) {
 
 if (isset($_GET["ok"])) {
     $mensajesOk = [
+        "admin_creado" => "Nueva cuenta de administrador creada correctamente.",
         "foto" => "Foto de perfil actualizada correctamente.",
         "tema" => "Tema publicado en el módulo correspondiente.",
         "eliminado" => "Tema eliminado correctamente."
@@ -156,6 +191,15 @@ $paginaActiva = "admin";
             </figure>
 
             <dl class="adm-datos">
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #e2e8f0;">
+                    <h3 style="margin-bottom: 12px; font-size: 1.05rem;">Crear nuevo administrador</h3>
+                    <form method="post" action="admin.php" style="display: flex; flex-direction: column; gap: 10px;">
+                        <input type="text" name="nuevo_nombre" placeholder="Nombre" required style="padding: 8px 10px; border-radius: 6px; border: 1px solid #cbd5e1;">
+                        <input type="text" name="nuevo_apellido" placeholder="Apellido" required style="padding: 8px 10px; border-radius: 6px; border: 1px solid #cbd5e1;">
+                        <input type="email" name="nuevo_correo" placeholder="Correo electrónico" required style="padding: 8px 10px; border-radius: 6px; border: 1px solid #cbd5e1;">
+                        <input type="password" name="nuevo_password" placeholder="Contraseña (mín. 6 caracteres)" minlength="6" required style="padding: 8px 10px; border-radius: 6px; border: 1px solid #cbd5e1;">
+                        <button type="submit" name="crear_admin" value="1" class="adm-foto-boton" style="margin-top: 4px;">Crear admin</button>
+                    </form>
                 <dt class="adm-datos-termino">Nombre y Apellido</dt>
                 <dd class="adm-datos-valor adm-datos-valor--nombre">
                     <?= e(($admin["nombre"] ?? "") . " " . ($admin["apellido"] ?? "")) ?>

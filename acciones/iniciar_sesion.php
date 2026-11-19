@@ -36,7 +36,7 @@ try {
     $_SESSION["grado"] = $grado !== null ? (int)$grado : null;
     $_SESSION["rol"] = (string)$rol;
 
-    if ($rol === "admin") {
+    if ($_SESSION["rol"] === "admin" || $_SESSION["rol"] === "administrador") {
         header("Location: ../admin-repazo/admin.php");
     } else {
         header("Location: ../paginas/panel.php");

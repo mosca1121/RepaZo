@@ -2,7 +2,8 @@
 $rutaBase = $rutaBase ?? "../";
 $paginaActiva = $paginaActiva ?? "";
 $sesionIniciada = isset($_SESSION["id_usuario"]);
-$esAdmin = (($_SESSION["rol"] ?? "") === "admin");
+$rolSesion = (string)($_SESSION["rol"] ?? "");
+$esAdmin = ($rolSesion === "admin" || $rolSesion === "administrador");
 ?>
 <header class="navbar">
     <a class="logo" href="<?= e($rutaBase . 'paginas/' . ($sesionIniciada ? 'panel.php' : 'codigo.php')) ?>" style="text-decoration:none;">

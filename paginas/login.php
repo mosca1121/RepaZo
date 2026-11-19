@@ -3,7 +3,12 @@ declare(strict_types=1);
 require_once __DIR__ . "/../includes/conexiones.php";
 
 if (isset($_SESSION["id_usuario"])) {
-    header("Location: " . (($_SESSION["rol"] ?? "") === "admin" ? "../admin-repazo/admin.php" : "panel.php"));
+    $rolActual = (string)($_SESSION["rol"] ?? "");
+    if ($rolActual === "admin" || $rolActual === "administrador") {
+        header("Location: ../admin-repazo/admin.php");
+    } else {
+        header("Location: panel.php");
+    }
     exit;
 }
 
