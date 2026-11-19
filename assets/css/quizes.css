@@ -1,0 +1,270 @@
+.catalogo-quizzes {
+    width: min(1200px, 92%);
+    margin: 3rem auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.quiz-card {
+    padding: 1.5rem;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quiz-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.quiz-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #1565C0;
+}
+
+.quiz-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.65rem;
+}
+
+.quiz-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    background: #f1f4ff;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: background 0.2s, outline 0.2s;
+}
+
+.quiz-link:hover,
+.quiz-link:focus-visible {
+    background: #dfe7ff;
+    outline: 2px solid #5367c5;
+    
+}
+
+.maintemas {
+    width: min(900px, 92%);
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+.tituloMainT {
+    text-align: center;
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+
+.tema {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tema:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.16);
+}
+
+
+.tema h2 {
+    color: #1565C0;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.tema > p {
+    font-size: 1.05rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.tema .opcion {
+    display: block;               
+    width: 100%;                
+    text-align: left;              
+    background: #f8f9fc;           
+    color: #2c3e50;
+    border: 1px solid #e2e8f0;     
+    padding: 0.9rem 1.2rem;
+    margin-bottom: 0.75rem;        
+    border-radius: 12px;           
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tema .opcion:hover {
+    background: #f1f4ff;
+    border-color: #5367c5;
+    color: #1565C0;
+    transform: translateX(4px);   
+}
+
+/* Catálogo de Quizzes y Modal Semántico */
+.badge-puntaje {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: #e3f2fd;
+    color: #1565c0;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.btn-practicar {
+    width: 100%;
+    padding: 11px 18px;
+    border: none;
+    border-radius: 10px;
+    background: #1e88e5;
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.btn-practicar:hover {
+    background: #0d47a1;
+    transform: translateY(-2px);
+}
+
+dialog.modal-niveles {
+    border: none;
+    border-radius: 18px;
+    padding: 0;
+    max-width: 400px;
+    width: 92%;
+    margin: auto;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+dialog.modal-niveles::backdrop {
+    background: rgba(5, 25, 60, 0.72);
+    backdrop-filter: blur(3px);
+}
+
+.modal-caja {
+    position: relative;
+    background: #fff;
+    padding: 28px 24px;
+    text-align: center;
+    border-top: 6px solid #1e88e5;
+}
+
+.modal-caja h3 {
+    color: #1565c0;
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}
+
+.modal-cerrar {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #64748b;
+    cursor: pointer;
+}
+
+.modal-opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.modal-opciones a {
+    display: block;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #1e88e5;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.modal-opciones a.nivel-facil   { border-color: #43a047; color: #2e7d32; }
+.modal-opciones a.nivel-medio   { border-color: #1e88e5; color: #1565c0; }
+.modal-opciones a.nivel-dificil { border-color: #0d47a1; color: #0d47a1; }
+.modal-opciones a.nivel-facil:hover   { background: #43a047; color: #fff; }
+.modal-opciones a.nivel-medio:hover   { background: #1e88e5; color: #fff; }
+.modal-opciones a.nivel-dificil:hover { background: #0d47a1; color: #fff; }
+
+.areaM {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.areaM footer {
+    width: 100%;
+    padding: 0;
+    margin-top: 16px;
+    background: transparent;
+}
+
+.btn-practicar {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    padding: 11px 14px;
+    border: none;
+    border-radius: 10px;
+    background: #1e88e5;
+    color: #fff;
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.areaM footer {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: 0;
+    margin-top: auto;
+    background: transparent;
+    border-top: none;
+    box-shadow: none;
+    display: block;
+    flex-shrink: 1;
+}
+
+.areaM {
+    min-height: 290px;
+}

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["id_usuario"])) {
-    header("Location: ../../login.html");
+    header("Location: ../../paginas/login.php");
     exit;
 }
 
@@ -31,7 +31,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conexion->query("INSERT IGNORE INTO dificultad_quizzes (id_dificultad, nombre, descripcion) VALUES (1, 'Fácil', 'Preguntas de nivel básico.')");
         $conexion->query("INSERT IGNORE INTO quizzes (id_quiz, id_materia, id_dificultad, titulo, descripcion, grado) VALUES (122, 103, 1, 'Quiz de Física - Nivel Fácil Grado 11', 'Quiz básico de física', 11)");
 
-        $stmt = $conexion->prepare("INSERT INTO intentos_quizzes (id_usuario, id_quiz, porcentaje, respuestas_correctas, respuestas_incorrectas) VALUES (?, ?, ?, ?, ?)");
+        require_once __DIR__ . "/../guardar_intento.php";
+        $conexion->set_charset("utf8mb4");
+        $res = guardarIntentoQuiz($conexion, (int)$id_usuario, __FILE__, (int)$correctas, (int)$total_preguntas);
+        $porcentaje = $res["porcentaje"];
+        $incorrectas = $res["incorrectas"];
+        $stmt = new class { public function bind_param(...$a){} public function execute(){} public function close(){} };
         $stmt->bind_param("iidii", $id_usuario, $id_quiz, $porcentaje, $correctas, $incorrectas);
         $stmt->execute();
         $stmt->close();
@@ -46,8 +51,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Repazo | Quiz Física 11° - Fácil</title>
-    <link href="../../CSS/codigo.css" rel="stylesheet" />
-    <link href="../../CSS/quizes.css" rel="stylesheet" />
+    <link href="../../assets/css/codigo.css" rel="stylesheet" />
+    <link href="../../assets/css/quizes.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
     <style>
         .opcion-input { display: none; }
@@ -82,16 +87,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <header class="navbar">
         <div class="logo">
-            <img alt="logo de Repazo" decoding="async" loading="lazy" src="../../IMAGENES/LOGOREPAZO.jpg" />
+            <img alt="logo de Repazo" decoding="async" loading="lazy" src="../../assets/img/LOGOREPAZO.jpg" />
             <h2>Repazo</h2>
         </div>
         <nav>
             <ul>
-                <li><a href="../../panel.php">Módulos</a></li>
-                <li><a href="../quizes.html">Quizzes</a></li>
-                <li><a href="../../curiosidades.php">Datos Curiosos</a></li>
-                <li><a href="../../perfil.php">Perfil</a></li>
-                <li><a href="../../php/cerrar_sesion.php" style="color: #ffcccc;">Cerrar sesión</a></li>
+                <li><a href="../../paginas/panel.php">Módulos</a></li>
+                <li><a href="../../paginas/quizes.php">Quizzes</a></li>
+                <li><a href="../../paginas/curiosidades.php">Datos Curiosos</a></li>
+                <li><a href="../../paginas/perfil.php">Perfil</a></li>
+                <li><a href="../../acciones/cerrar_sesion.php" style="color: #ffcccc;">Cerrar sesión</a></li>
             </ul>
         </nav>
     </header>
@@ -280,7 +285,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </p>
             
             <br>
-            <a href="../../quizes.php" class="btn" style="text-decoration: none; display: inline-block; padding: 10px 25px;">Volver a Quizzes</a>
+            <a href="../../paginas/quizes.php" class="btn" style="text-decoration: none; display: inline-block; padding: 10px 25px;">Volver a Quizzes</a>
         </div>
     </div>
     <?php endif; ?>
